@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  JAN: MyString
+  Manufacturer: MyString
+  Product: MyString
+
+two:
+  JAN: MyString
+  Manufacturer: MyString
+  Product: MyString
