@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantity: 1
+  JAN: one
+  Manufacturer: one
+  Product: one
+
+two:
+  quantity: 1
+  JAN: two
+  Manufacturer: two
+  Product: two
