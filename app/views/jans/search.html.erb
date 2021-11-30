@@ -9,13 +9,14 @@
   <%= f.submit '検索' %>
 <% end %>
 
-<h1>カート</h1>
+<h1>@cart_item</h1>
 <table>
   <thead>
     <tr>
       <th>JANコード</th>
       <th>Manufacturer</th>
       <th>Product</th>
+      <th>Quabtity</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,13 +30,14 @@
           <td><%= jan.JAN %></td>
           <td><%= jan.Manufacturer %></td>
           <td><%= jan.Product %></td>
+          <td><%= jan.quantity %></td>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
 
-<h1>検索結果</h1>
+<h1>@results</h1>
 <table>
   <thead>
     <tr>
@@ -47,16 +49,45 @@
   </thead>
 
   <tbody>
-    <% @results.each do |jan| %>
-      <%= form_with model: @cart_item do |f| %>
-        <tr>
-          <td><%= jan.JAN %></td>
-          <td><%= jan.Manufacturer %></td>
-          <td><%= jan.Product %></td>
-          <td><%= f.submit "カートへ追加", class: "btn btn-primary" %></td>
-        </tr>
+    <% if @results.nil? %>
+      <td>商品が見つかりませんでした</td>
+    <% else %>
+      <% @results.each do |jan| %>
+        <%= form_with model: @cart_item do |f| %>
+          <tr>
+            <td><%= jan.JAN %></td>
+            <td><%= jan.Manufacturer %></td>
+            <td><%= jan.Product %></td>
+            <td><%= f.submit "カートへ追加", class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
       <% end %>
     <% end %>
   </tbody>
 </table>
 
+<h1>@jans</h1>
+<table>
+  <thead>
+    <tr>
+      <th>JANコード</th>
+      <th>Manufacturer</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @jans.nil? %>
+      <td>商品が見つかりませんでした</td>
+    <% else %>
+      <% @jans.each do |jan| %>
+        <tr>
+          <td><%= jan.JAN %></td>
+          <td><%= jan.Manufacturer %></td>
+          <td><%= jan.Product %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
